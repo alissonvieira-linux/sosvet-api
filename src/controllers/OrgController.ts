@@ -35,6 +35,14 @@ class OrgController {
 
     return res.json(orgs);
   }
+
+  async show(req: Request, res: Response) {
+    const { id } = req.params;
+
+    const org = await Org.findById({ _id: id });
+
+    return res.json(org);
+  }
 }
 
 export default new OrgController();
